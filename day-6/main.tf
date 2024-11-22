@@ -95,7 +95,7 @@ egress {
 #PUBLIC SERVER WITH IP
 resource "aws_instance" "server-pub" {
   subnet_id = aws_subnet.pub-sub.id
-  security_groups = [ aws_security_group.sg.id ]
+  vpc_security_group_ids = [ aws_security_group.sg.id ]
   ami = "ami-012967cc5a8c9f891"
   instance_type = "t2.micro"
   key_name = "nkey"
@@ -113,5 +113,5 @@ resource "aws_instance" "pvt-server" {
     Name="Private-Server-Using-Terrafrom"
   }
   subnet_id = aws_subnet.pri-sub.id
-  security_groups = [ aws_security_group.sg.id ]
+  vpc_security_group_ids = [ aws_security_group.sg.id ]
 }
