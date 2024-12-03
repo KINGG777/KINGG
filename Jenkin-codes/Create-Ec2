@@ -1,0 +1,26 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Clone code') {
+            steps {
+                git branch: 'main', url: 'https://github.com/KINGG777/KINGG.git'
+            }
+        }
+        stage('Dir change And Init') {
+            steps {
+                dir ('Jenkin-prac') {
+                sh "terraform init"
+                }
+            }
+        }
+        stage('Create EC2') {
+            steps {
+                dir ('Jenkin-prac') {
+                sh "terraform apply -auto-approve"
+                }
+                    
+            }
+        }
+    }
+}
