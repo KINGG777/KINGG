@@ -1,0 +1,42 @@
+1-STOP THE SERVER FIRST
+
+sudo systemctl stop jenkins
+
+2-CREATE FOLDER WHERE YOU WANT TO  CONFIGURE 
+
+sudo mkdir -p /home/KINGG/Jenkins
+
+3-OWNERSHIP
+ 
+sudo chown -R jenkins:jenkins /home/KINGG/Jenkins
+
+4-CHANGE PERMISSIONS
+ 
+sudo chmod 755 /home/KINGG
+sudo chmod -R 755 /home/KINGG/Jenkins
+
+5-MOVE FILES 
+
+sudo mv /var/lib/jenkins/* /home/KINGG/jenkins/
+
+
+6-EDIT JENKINS.SERVICES
+
+sudo vi /usr/lib/systemd/system/jenkins.service
+
+path give Environment="JENKINS_HOME=/home/KINGG/jenkins"
+path give WorkingDirectory=/home/KINGG/jenkins
+
+7-DEAMON-RELOAD AS WE MODIFIED JENKINS.SERVICES
+
+sudo systemctl daemon-reload
+
+8-START THE SERVER
+
+sudo systemctl start Jenkins
+
+9-CHECK STATUS
+
+sudo systemctl status Jenkins
+
+10-NOW GO TO MANAGE JENKIN->SYSTEM AND VERIFY YOUR PATH
