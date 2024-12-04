@@ -1,0 +1,5 @@
+node {
+    stage('clone'){
+        sh "git clone https://github.com/KINGG777/KINGG.git"
+    }
+}
