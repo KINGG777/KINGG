@@ -1,0 +1,17 @@
+# TOMCAT INSTALL PROCESS:
+
+# 1-DOWNLOAD
+
+wget https://dlcdn.apache.org/tomcat/tomcat-11/v11.0.1/bin/apache-tomcat-11.0.1.tar.gz
+
+# 2-EXTRACT
+
+tar -xvzf apache-tomcat-11.0.1.tar.gz
+
+# 3-MOVE FILES TO TOMCAT DEFAULT PATH
+
+mv apache-tomcat-11.0.1 /opt/tomcat
+
+# 4-START TOMCAT SERVER
+
+sh /opt/tomcat/bin/startup.sh
